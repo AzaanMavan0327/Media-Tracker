@@ -122,39 +122,46 @@ If you are reconstructing this system design blueprint step-by-step from scratch
 ### 1. POST - Create Media Item
 * **Endpoint:** `POST http://localhost:8080/api/media`
 * **Description:** Sends a new media entry as a JSON payload. The server returns the persisted object along with a database-generated unique ID and a `201 Created` status.
-![POST Endpoint Response Screenshot](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%201.png)
+![1_POST_Endpoint](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%201.png)
 
 ---
 
-### 2. GET - Fetch All Media Items
+### 2. POST - Create Media Item (Validation Failure Exception)
+* **Endpoint:** `POST http://localhost:8080/api/media`
+* **Description:** Demonstrates the application's input verification firewall. Sending a payload missing a required title field or out-of-bound numerical ranges is intercepted cleanly, returning a `400 Bad Request` along with the precise validation failure notification text.
+![2_Validation_Failure_Response_Screenshot](https://github.com/AzaanMavan0327/Media-Tracker/blob/65ef5dcbbd423fdcab0f64574750fd8e0549e114/screenshots/Output%206.png)
+
+---
+
+### 3. GET - Fetch All Media Items
 * **Endpoint:** `GET http://localhost:8080/api/media`
 * **Description:** Retrieves all media items currently stored in the internal H2 memory index. The response payload is wrapped in a JSON array `[ ]` with a `200 OK` status.
 
-![2_GET_All_Items](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%202.png)
+![3_GET_All_Items](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%202.png)
 
 ---
 
-### 3. GET - Fetch Media Item By ID
+### 4. GET - Fetch Media Item By ID
 * **Endpoint:** `GET http://localhost:8080/api/media/{id}`
 * **Description:** Performs an index search for a specific item using its primary key (`/1`). Returns a single JSON entity object with a `200 OK` status.
 
-![3_GET_By_ID](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%203.png)
+![4_GET_By_ID](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%203.png)
 
 ---
 
-### 4. PUT - Update Media Item
+### 5. PUT - Update Media Item
 * **Endpoint:** `PUT http://localhost:8080/api/media/{id}`
 * **Description:** Overwrites the data fields of an existing record to track active progress changes. Returns the fully updated object body with a `200 OK` status.
 
-![4_PUT_Update_Item](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%204.png)
+![5_PUT_Update_Item](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%204.png)
 
 ---
 
-### 5. DELETE - Remove Media Item
+### 6. DELETE - Remove Media Item
 * **Endpoint:** `DELETE http://localhost:8080/api/media/{id}`
 * **Description:** Purges the target data row permanently from the system memory index. Returns a completely blank response body paired with a standard `204 No Content` status.
 
-![5_DELETE_Item](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%205.png)
+![6_DELETE_Item](https://github.com/AzaanMavan0327/Media-Tracker/blob/e4f2ce9ed2f6dcfb6ae45b2bb8b57c853a5af7ee/screenshots/Output%205.png)
 
 ---
 
