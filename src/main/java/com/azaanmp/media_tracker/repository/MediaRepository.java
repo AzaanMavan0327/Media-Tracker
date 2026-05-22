@@ -8,10 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface MediaRepository extends JpaRepository<MediaItem, Long> {
     // MediaItem: Tells the repository that this interface manages the MediaItem entity.
     // Long: Identifies that the primary key (@Id) type inside MediaItem is a Long integer.
-
-    // By keeping this empty, we inherit over 30 default database functions:
-    // .save() -> Inserts or Updates records
-    // .findAll() -> SELECT * FROM media_items
-    // .findById() -> Finds a single row by its id number
-    // .deleteById() -> Drops a row out of the table
 }
